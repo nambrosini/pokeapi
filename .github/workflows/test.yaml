@@ -14,8 +14,12 @@ jobs:
       uses: actions/setup-go@v4.0.0
     - name: format
       run: go fmt
-    - name: Git Commit/Push Changes
-      uses: actions-x/commit@v6
+    - name: Git Auto Commit
+      # You may pin to the exact commit or the version.
+      # uses: stefanzweifel/git-auto-commit-action@3ea6ae190baf489ba007f7c92608f33ce20ef04a
+      uses: stefanzweifel/git-auto-commit-action@v4.16.0
+      with:
+        commit_message: "Apply go fmt"
     - name: Go Test Action
       # You may pin to the exact commit or the version.
       # uses: robherley/go-test-action@d2be031ae805ef1cfd282b685ff38f8b65e799b8
