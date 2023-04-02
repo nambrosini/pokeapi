@@ -1,0 +1,12 @@
+redis:
+  port: 6379
+  password: ""
+postgresql:
+  enabled: true
+  postgresqlUsername: {username}
+  postgresqlPassword: {password}
+  postgresqlDatabase: {database name}
+  persistence:
+    enabled: true
+    size: 5Gi
+    name: pvc-db
