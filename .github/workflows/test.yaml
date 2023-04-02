@@ -8,9 +8,12 @@ jobs:
   format-and-test:
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
     - name: Setup Go environment
       uses: actions/setup-go@v4.0.0
-    - run: go fmt
+    - name: format
+      run: go fmt
     - name: Git Commit/Push Changes
       uses: actions-x/commit@v6
     - name: Go Test Action
