@@ -43,7 +43,7 @@ func GetBook(id string) (Book, error) {
 		}
 	} else {
 		if err := DB.Where("id = ?", id).First(&book).Error; err != nil {
-			return Book{}, nil
+			return Book{}, err
 		}
 		book.createRedis()
 	}
