@@ -31,7 +31,3 @@ jobs:
         with:
           name: Go-results-${{ matrix.go-version }}
           path: TestResults-${{ matrix.go-version }}.json
-      - name: Golang Formatter
-        uses: sladyn98/auto-go-format@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
