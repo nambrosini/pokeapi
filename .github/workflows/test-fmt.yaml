@@ -25,7 +25,17 @@ jobs:
       - name: Build
         run: go build -v ./...
       - name: Test with Go
-        run: go test -json > TestResults-${{ matrix.go-version }}.json
+        run: go test -json -v ./ ... > TestResults-${{ matrix.go-version }}.json
+      - name: Update coverage report
+        uses: ncruces/go-coverage-report@v0
+        with:
+          report: 'true'
+          chart: 'true'
+          amend: 'false'
+        if: |
+          matrix.os == 'ubuntu-latest' &&
+          github.event_name == 'push'
+        continue-on-error: true
       - name: Upload Go test results
         uses: actions/upload-artifact@v3
         with:
